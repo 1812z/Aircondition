@@ -83,6 +83,12 @@ void miotTemp(uint8_t temp)
 //APP控制
 BlinkerButton Button1("BUTTON_1");
 BlinkerButton Button2("BUTTON_2");
+//模式控制
+BlinkerButton Button3("BUTTON_3");
+BlinkerButton Button4("BUTTON_4");
+BlinkerButton Button5("BUTTON_5");
+BlinkerButton Button6("BUTTON_6");
+BlinkerButton Button7("BUTTON_7");
 //温度APP控制
 void slider1_callback(int32_t value)
 {
@@ -204,10 +210,10 @@ void button2_callback(const String & state)
     BLINKER_LOG("get button state: ", state);
     if (state == BLINKER_CMD_ON) {
         BLINKER_LOG("Toggle on!");
-        Button1.icon("icon_1");
-        Button1.color("#FF0000");
-        Button1.text("扫风开");
-        Button1.print("on");   
+        Button2.icon("icon_1");
+        Button2.color("#FF0000");
+        Button2.text("扫风开");
+        Button2.print("on");   
         ac.setSwing(true);
         ac.send();
         BlinkerMIOT.vswing("on");
@@ -216,11 +222,11 @@ void button2_callback(const String & state)
     }
     else if (state == BLINKER_CMD_OFF) {
         BLINKER_LOG("Toggle off!");
-        Button1.icon("icon_1");
-        Button1.color("#FF0000");
-        Button1.text("扫风关");
+        Button2.icon("icon_1");
+        Button2.color("#FF0000");
+        Button2.text("扫风关");
         // Button1.text("Your button name", "describe");
-        Button1.print("off");
+        Button2.print("off");
         ac.setSwing(false);
         ac.send();
         BlinkerMIOT.vswing("off");
@@ -238,6 +244,57 @@ void button2_callback(const String & state)
 
 }
 }
+//APP控制-模式
+void button3_callback(const String & state)
+{
+  
+    BLINKER_LOG("get button state: ", state);
+    if (state == BLINKER_CMD_BUTTON_TAP) {
+        BLINKER_LOG("Toggle on!");
+        ac.setMode(kSamsungAcAuto);
+        ac.send();
+    }
+}
+void button4_callback(const String & state)
+{
+  
+    BLINKER_LOG("get button state: ", state);
+    if (state == BLINKER_CMD_BUTTON_TAP) {
+        BLINKER_LOG("Toggle on!");  
+        ac.setMode(kSamsungAcCool);
+        ac.send();
+    }
+}
+ void button5_callback(const String & state)
+{
+  
+    BLINKER_LOG("get button state: ", state);
+    if (state == BLINKER_CMD_BUTTON_TAP) {
+        BLINKER_LOG("Toggle on!"); 
+        ac.setMode(kSamsungAcDry);
+        ac.send();
+    }
+}
+void button6_callback(const String & state)
+{
+  
+    BLINKER_LOG("get button state: ", state);
+    if (state == BLINKER_CMD_BUTTON_TAP) {
+        BLINKER_LOG("Toggle on!");
+        ac.setMode(kSamsungAcFan);
+        ac.send();
+    }
+}
+void button7_callback(const String & state)
+{
+  
+    BLINKER_LOG("get button state: ", state);
+    if (state == BLINKER_CMD_BUTTON_TAP) {
+        BLINKER_LOG("Toggle on!"); 
+        ac.setMode(kSamsungAcHeat);
+        ac.send();
+    }
+}  
 void miotVSwingState(const String & state)
 {
     BLINKER_LOG("need set VSwing state: ", state);
@@ -346,6 +403,12 @@ void setup()
 //APP控制
     Button1.attach(button1_callback);
     Button2.attach(button2_callback);
+    //模式callback
+    Button3.attach(button3_callback);
+    Button4.attach(button4_callback);
+    Button5.attach(button5_callback);
+    Button6.attach(button6_callback);
+    Button7.attach(button7_callback);
     //
 
     Blinker.begin(auth, ssid, pswd);
