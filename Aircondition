@@ -13,6 +13,10 @@
 //
 //
 //
+char auth[] = "KEY";
+char ssid[] = "WIFI名字";
+char pswd[] = "WIFI密码";
+
 #include <ir_Samsung.h>  //修改空调型号改这里，比如你的空调是格力，那么使用下面的，并把这个添加注释
 //#include <ir_Gree.h> //左边是格力空调
 //
@@ -45,9 +49,8 @@ void dataStorage()
 BlinkerNumber HUMI("humi");
 BlinkerNumber TEMP("temp");
 //
-char auth[] = "KEY";
-char ssid[] = "WIFI名字";
-char pswd[] = "WIFI密码";
+
+
 bool oState = false;
 bool hsState = false;
 bool vsState = false;
@@ -351,6 +354,26 @@ void button7_callback(const String & state)
 //}
 //void button9_callback(const String & state)
 //{
+//void miotecoState(const String & state)
+//{
+//    BLINKER_LOG("need set eco state: ", state);
+//
+//    if (state == BLINKER_CMD_ON) {
+//        ac.eco(on);
+//        ac.send();
+//        BlinkerMIOT.eco("on");
+//        BlinkerMIOT.print();
+//        ecoState = true;
+//    }
+//    else if (state == BLINKER_CMD_OFF) {
+//        ac.eco(off);
+//        ac.send();
+//        BlinkerMIOT.eco("off");
+//        BlinkerMIOT.print();
+//        ecoState = false;
+//    }
+//}
+
 
 //以下代码为睡眠模式开关 如果你的空调支持自行取消注释
 //  BLINKER_LOG("get button state: ", state);
@@ -379,6 +402,27 @@ void button7_callback(const String & state)
 //         slState = false;
 //    }
 //}
+//void miotsleepState(const String & state)
+//{
+//    BLINKER_LOG("need set sleep state: ", state);
+//
+//    if (state == BLINKER_CMD_ON) {
+//        ac.sleep(on);
+//        ac.send();
+//        BlinkerMIOT.sleep("on");
+//        BlinkerMIOT.print();
+//        slState = true;
+//    }
+//    else if (state == BLINKER_CMD_OFF) {
+//        ac.sleep(off);
+//        ac.send();
+//        BlinkerMIOT.sleep("off");
+//        BlinkerMIOT.print();
+//        slState = false;
+//    }
+//}
+
+
 void miotVSwingState(const String & state)
 {
     BLINKER_LOG("need set VSwing state: ", state);
