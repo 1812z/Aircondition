@@ -10,20 +10,21 @@
 #include <Arduino.h>
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
-//
-//
+#include "ESP8266WiFi.h"
 //
 char auth[] = "KEY";
 char ssid[] = "WIFI名字";
 char pswd[] = "WIFI密码";
-
+//
 #include <ir_Samsung.h>  //修改空调型号改这里，比如你的空调是格力，那么使用下面的，并把这个添加注释
 //#include <ir_Gree.h> //左边是格力空调
 //
 //
 //
+
 #include <Blinker.h>
 const uint16_t kIrLed = 4;
+
 IRSamsungAc ac(kIrLed);     // Set the GPIO used for sending messages.
 //DHT21，如果为
 #define DHTTYPE DHT21  
@@ -32,6 +33,10 @@ IRSamsungAc ac(kIrLed);     // Set the GPIO used for sending messages.
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 #define DHTPIN 14
+
+//wifi信号检测
+
+BlinkerNumber TEXT("rssi");
 
 #define Slider_1 "Slidert"//APP温度控制滑条
 BlinkerSlider Slider1(Slider_1);
@@ -78,10 +83,6 @@ void miotLevel(uint8_t level)
      break;
       case 3:
      ac.setFan(kSamsungAcFanHigh);
-     ac.send();
-     break;
-       case 4:
-     ac.setFan(kSamsungAcFanTurbo);
      ac.send();
      break;
      default:
@@ -148,6 +149,10 @@ void slider2_callback(int32_t value)
      ac.setFan(kSamsungAcFanHigh);
      ac.send();
      break;
+      case 4:
+     ac.setFan(kSamsungAcFanTurbo);
+     ac.send();
+     break;  
      default:
      break;
     }  
@@ -194,7 +199,9 @@ void miotHSwingState(const String & state)
 void heartbeat()//心跳
 { 
    HUMI.print(humi_read);
-    TEMP.print(temp_read);
+    TEMP.print(temp_read);  
+    TEXT.print(WiFi.RSSI()); 
+
 }
 //APP控制开关
 void button1_callback(const String & state)
@@ -562,6 +569,7 @@ void setup()
 
 void loop()
 {
+
     Blinker.run();
     //dht
       float h = dht.readHumidity();
