@@ -1,8 +1,4 @@
-//只限场景控使用
-//只限场景控使用
-//只限场景控使用
-//只限场景控使用
-//只限场景控使用//必看！！！！
+//必看！！！！
 //原创代码 作者 bilibili @1812z 博客: 1812z.top 
 //Github:https://github.com/1812z/Aircondition
 //关于睡眠模式和节能模式添加： 先取消注释，然后在APP里编辑界面，添加两个按钮，键名分别是 BUTTON_8 和 BUTTON_9 ,设置为开关按钮 
@@ -20,7 +16,7 @@ char auth[] = "KEY";
 char ssid[] = "WIFI名字";
 char pswd[] = "WIFI密码";
 //
-#include <ir_Samsung.h>  //修改空调型号改这里，比如你的空调是格力，那么使用下面的，并把这个添加注释,还需要修改下面的代码，不止这里
+#include <ir_Samsung.h>  //修改空调型号改这里，比如你的空调是格力，那么使用下面的，并把这个添加注释
 //#include <ir_Gree.h> //左边是格力空调
 //
 //
@@ -44,7 +40,10 @@ BlinkerSlider Slider2(Slider_2);
 uint32_t read_time = 0;
 #define ACSEND \
    ac.send();  \
-   digitalWrite(kIrLed,HIGH); //去掉注释就是给 场景控A1用，否则会发热严重并烧糊！！！！！
+   digitalWrite(kIrLed,HIGH); \
+   digitalWrite(16,HIGH); \
+   delay(800); \
+   digitalWrite(16,LOW); 
 
 bool oState = false;
 bool hsState = false;
@@ -550,6 +549,8 @@ void setup()
     Slider2.attach(slider2_callback);//风速
      pinMode(kIrLed,OUTPUT);
     digitalWrite(kIrLed,HIGH);
+     pinMode(16,OUTPUT);
+    digitalWrite(16,LOW);
 }
 
 void loop()
