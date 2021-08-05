@@ -42,7 +42,7 @@ uint32_t read_time = 0;
    ac.send();  \
    digitalWrite(kIrLed,HIGH); \
    digitalWrite(16,HIGH); \
-   delay(800); \
+   delay(100); \
    digitalWrite(16,LOW); 
 
 bool oState = false;
