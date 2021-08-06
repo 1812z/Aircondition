@@ -12,7 +12,7 @@
 #include <IRutils.h>
 #include "ESP8266WiFi.h"
 //
-int firm = 46;
+int firm = 46; //型号改这和下面 
 char auth[] = "KEY";
 char ssid[] = "WIFI名字";
 char pswd[] = "WIFI密码";
