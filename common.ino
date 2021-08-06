@@ -12,11 +12,14 @@
 #include <IRutils.h>
 #include "ESP8266WiFi.h"
 //
+int firm = 46;
 char auth[] = "KEY";
 char ssid[] = "WIFI名字";
 char pswd[] = "WIFI密码";
 //
-//型号在下面改！！！！！
+
+
+//
 //
 #include <Blinker.h>
 const uint16_t kIrLed = 4;
@@ -506,7 +509,8 @@ void setup()
     // Set up what we want to send.
   // See state_t, opmode_t, fanspeed_t, swingv_t, & swingh_t in IRsend.h for
   // all the various options.
-  ac.next.protocol = decode_type_t::DAIKIN;   //型号改这里  型号对照图片https://img2.moeblog.vip/images/Zx9t.png 来自arduino论坛
+  decode_type_t protocol = (decode_type_t)firm;
+  ac.next.protocol = decode_type_t::SAMSUNG;   //型号改这里  型号对照图片https://img2.moeblog.vip/images/Zx9t.png 来自arduino论坛
   ac.next.model = 1;  // Some A/Cs have different models. Try just the first.
   ac.next.mode = stdAc::opmode_t::kCool;  // Run in cool mode initially.
   ac.next.celsius = true;  // Use Celsius for temp units. False = Fahrenheit
