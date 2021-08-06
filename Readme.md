@@ -8,7 +8,7 @@
 ![avatar](https://github.com/1812z/Aircondition/raw/main/%E5%88%B6%E4%BD%9C%E6%80%9D%E8%B7%AF%E5%9B%BE.png)
 所需的库：IRRemoteESP8266,WIFI,Blinker,Arduino,DHT sensor library 【反正少了就搜的词少点，都下载了,Doge]
 
-版本一 自制ESP8266红外遥控器
+自制ESP8266红外遥控器
 =================
 
 硬件：ESP8266 ir模块 dht21[可选] 
