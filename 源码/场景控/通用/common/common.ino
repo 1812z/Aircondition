@@ -18,7 +18,7 @@ char ssid[] = "wifi名称";
 char pswd[] = "密码";
 //
 #include <Blinker.h>
-const uint16_t kIrLed = 4;
+const uint16_t kIrLed = 14;
 
 IRac ac(kIrLed);     // Set the GPIO used for sending messages.
 
