@@ -561,6 +561,10 @@ void setup()
     BlinkerMIOT.attachQuery(miotQuery);
     Slider1.attach(slider1_callback);//温度
     Slider2.attach(slider2_callback);//风速
+    pinMode(kIrLed,OUTPUT);
+    digitalWrite(kIrLed,HIGH);
+    pinMode(16,OUTPUT);
+    digitalWrite(16,LOW);
 }
 
 void loop()
