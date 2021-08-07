@@ -23,7 +23,7 @@ const uint16_t kIrLed = 4;
 IRac ac(kIrLed);     // Set the GPIO used for sending messages.
 
 #define ACSEND \
-   ac.send();  \
+   ac.sendAc(); \ 
    digitalWrite(kIrLed,HIGH); \
    digitalWrite(16,HIGH); \
    delay(100); \
