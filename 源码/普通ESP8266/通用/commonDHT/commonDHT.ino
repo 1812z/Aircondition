@@ -12,7 +12,7 @@
 #include <IRutils.h>
 #include "ESP8266WiFi.h"
 //
-int firm = 46; //型号改这里，下面也要改！！！
+int firm = 46; //型号改这里  型号对照图片https://img2.moeblog.vip/images/Zx9t.png 来自arduino论坛
 char auth[] = "KEY";
 char ssid[] = "wifi名称";
 char pswd[] = "密码";
@@ -532,7 +532,8 @@ void setup()
   // See state_t, opmode_t, fanspeed_t, swingv_t, & swingh_t in IRsend.h for
   // all the various options.
   decode_type_t protocol = (decode_type_t)firm;
-  ac.next.protocol = decode_type_t::SAMSUNG;   //型号改这里  型号对照图片https://img2.moeblog.vip/images/Zx9t.png 来自arduino论坛
+   ac.next.protocol = protocol; 
+ //ac.next.protocol = decode_type_t::SAMSUNG;   
   ac.next.model = 1;  // Some A/Cs have different models. Try just the first.
   ac.next.mode = stdAc::opmode_t::kCool;  // Run in cool mode initially.
   ac.next.celsius = true;  // Use Celsius for temp units. False = Fahrenheit
