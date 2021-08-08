@@ -551,7 +551,7 @@ void setup()
      Button10.attach(button10_callback);//超强
     Blinker.begin(auth, ssid, pswd);
     Blinker.attachData(dataRead);
-
+    Blinker.attachHeartbeat(heartbeat);
     BlinkerMIOT.attachPowerState(miotPowerState);
     BlinkerMIOT.attachHSwing(miotHSwingState);
     BlinkerMIOT.attachVSwing(miotVSwingState);
