@@ -515,6 +515,8 @@ void setup()
   // See state_t, opmode_t, fanspeed_t, swingv_t, & swingh_t in IRsend.h for
   // all the various options.
   decode_type_t protocol = (decode_type_t)firm;
+   Serial.println("Protocol " + String(protocol) + " / " +
+                     typeToString(protocol) + " is supported.");
   ac.next.protocol = protocol;  
   ac.next.model = 1;  // Some A/Cs have different models. Try just the first.
   ac.next.mode = stdAc::opmode_t::kCool;  // Run in cool mode initially.
