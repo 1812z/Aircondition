@@ -25,7 +25,7 @@
 
 未实现的功能：
 
-* 红外接收
+* 红外接收[咕咕咕]
 
  刷写以及注意事项：https://www.bilibili.com/video/BV1cA411P79G/ 
  
